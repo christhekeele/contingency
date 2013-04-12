@@ -10,10 +10,10 @@ module Contingency
     attr_accessor :adapter, :adapters
   end
 
-  self.adapters = Contingency::Adapters.constants.reject{ |a| a == :Interface }
 
   def self.configure
-    self.adapter ||= Contingency::Adapters.const_get self.adapters.first || Adapters::Interface
+    self.adapters = Contingency::Adapters.constants.reject{ |a| a == :Interface }
+    self.adapter ||= self.adapters.length > 0 ? Contingency::Adapters.const_get self.adapters.first : Adapters::Interface
     self.configuration ||= defined?(self.adapter::Configuration) ? self.adapter::Configuration.new : Configuration.new
 
     yield(configuration) if block_given?
