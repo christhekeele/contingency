@@ -79,7 +79,7 @@ Contingency
         <a href='#poor-dependency-management'>Poor</a>
       </td>
       <td>
-        <a href='https://www.github.com/christhekeele/contingency_rails/issues'>0.0.1</a>
+        <a href='https://www.github.com/christhekeele/contingency_rails'>0.0.1</a>
       </td>
       <td>
         <a href='https://www.github.com/christhekeele/contingency_rails/issues'>christhekeele</a>
@@ -157,6 +157,8 @@ I keep up with these frameworks through [the Bundle Scout](https://bundlescout.c
 ## Contributing Integrations
 </a>
 
+See [contingency_rails](https://www.github.com/christhekeele/contingency_rails) as an example.
+
 1. Create a new gem named after your framework (`bundle gem contingency-my_integration`)
 1. Add Contingency as a dependency to your gemspec and bundle install
 1. Generate an integration template (`bundle exec rake contingency:generate:plan[my_integration]`)
@@ -199,4 +201,4 @@ I keep up with these frameworks through [the Bundle Scout](https://bundlescout.c
 </a>
 
 * Thanks to [nathanl](https://github.com/nathanl) and his excellent authorization gem, [Authority](https://github.com/nathanl/authority), the structure of which inspired this one.
-* Thanks to [Ryanb](https://github.com/ryanb), and his subscription-worthy [Railscasts](http://railscasts.com/), which have inspired us all. Especially us [Pro users](http://railscasts.com/pro).
+* Thanks to [ryanb](https://github.com/ryanb), and his subscription-worthy [Railscasts](http://railscasts.com/), which have inspired us all. Especially us [Pro users](http://railscasts.com/pro).

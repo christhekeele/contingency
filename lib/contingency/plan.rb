@@ -4,10 +4,11 @@ module Contingency
     extend ActiveSupport::Concern
     extend ActiveSupport::Rescuable
 
-    include Contingency::Integration
 
     included do
-      if Contingency.render_errors?
+      extend Contingency.adapter
+
+      if catch_errors?
         Contingency.configuration.errors.each do |code, exceptions|
           rescue_from *exceptions, with: ->(exception){ render_error code, exception }
         end
@@ -34,7 +35,7 @@ module Contingency
       @description = description
       error_renderer(code)
     rescue Exception => handler_exception
-      logger.fatal error_report(Contingency::Exceptions::ErrorHandlerException.new(exception, handler_exception))
+      logger.fatal error_report(Contingency::Exceptions::ContingencyPlanException.new(exception, handler_exception))
       failure_renderer(500)
     end
   end

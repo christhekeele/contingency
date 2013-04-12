@@ -9,7 +9,7 @@ module Contingency
         @backtrace = ['None. No real error occured.']
       end
     end
-    class ErrorHandlerException < ContingencyError
+    class ContingencyPlanException < ContingencyError
       def initialize(original_exception, handler_exception)
         @message =  "`Contingency::Plan` encountered exception `#{handler_exception.class.name}`" \
                     " while trying to handle exception `#{original_exception.class.name}`:" \

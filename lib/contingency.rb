@@ -1,41 +1,37 @@
-require 'active_support/inflector'
 require 'active_support/concern'
 require 'active_support/rescuable'
-require 'active_support/core_ext/object/try'
 require 'logger'
 require "contingency/exceptions"
-
+require "contingency/adapters/interface"
 
 module Contingency
 
   class << self
     alias :configure :initialize
     attr_accessor :configuration
+    attr_accessor :adapter, :adapters
   end
+
+  self.adapters = []
 
   def self.configure
+    self.adapter ||= self.adapters.first || Adapters::Interface
     self.configuration ||= Configuration.new
+
+    yield(self.adapter.default_configuration) if self.adapter.respond_to?(:default_configuration)
     yield(configuration) if block_given?
-    require "contingency/integration"
+
     require "contingency/plan"
+
     configuration
-  end
-
-  def self.root
-    Pathname.new(File.expand_path("../..", __FILE__))
-  end
-
-  # To be overriden by integrations
-  def self.render_errors?
-    true
   end
 
   def self.logger
     @logger ||= configuration.logger
   end
 
+
 end
 
 require "contingency/configuration"
-require "contingency/integrations/rails/railtie.rb" if defined?(Rails)
 require "contingency/version"
