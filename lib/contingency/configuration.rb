@@ -1,4 +1,4 @@
-module PennyWise
+module Contingency
   class Configuration
 
     attr_accessor :require_integration, :errors, :error_messages, :error_layout,

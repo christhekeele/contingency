@@ -1,9 +1,9 @@
-PennyWise.configure do |config|
+Contingency.configure do |config|
 
     ###
     # A hash of errors mapped to status codes.
     # `ActiveSupport::Rescuable#rescue_from` will catch these
-    # and pass them to `PennyWise::ErrorHandler`.
+    # and pass them to `Contingency::ErrorHandler`.
     # Ensure that your general case exception comes first in the list,
     # otherwise it will catch everything. Not sure why, I think it's
     # something about `ActiveSupport::Rescuable#rescue_from`.

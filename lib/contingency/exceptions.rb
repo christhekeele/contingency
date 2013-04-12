@@ -1,15 +1,15 @@
-module PennyWise
+module Contingency
   module Exceptions
-    class PennyWiseError < Exception
+    class ContingencyError < Exception
       attr_accessor :message, :backtrace
     end
-    class RenderedErrorPageException < PennyWiseError
+    class RenderedErrorPageException < ContingencyError
       def initialize
         @message = 'An error page was explicitly requested.'
         @backtrace = ['None. No real error occured.']
       end
     end
-    class ErrorHandlerException < PennyWiseError
+    class ErrorHandlerException < ContingencyError
       def initialize(original_exception, handler_exception)
         @message =  "`ErrorHandler` encountered exception `#{handler_exception.class.name}`" \
                     " while trying to handle exception `#{original_exception.class.name}`:" \

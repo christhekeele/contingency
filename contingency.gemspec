@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'penny_wise/version'
+require 'contingency/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "penny_wise"
-  spec.version       = PennyWise::VERSION
+  spec.name          = "contingency"
+  spec.version       = Contingency::VERSION
   spec.authors       = ["Christopher Keele"]
   spec.email         = ["dev@chriskeele.com"]
-  spec.description   = "Easily render customized error pages."
-  spec.summary       = "Don't let pennies on the track derail your user experience. Handle all exceptions, big or small, with your own beautiful customized error pages. Framework agnostic with several integrations, supports i18n."
-  spec.homepage      = ""
+  spec.description   = "A framework agnostic exception catcher and custom error page generator."
+  spec.summary       = "Handle your ruby web application's errors your way, with your own beautiful customized error pages. Framework agnostic with several integrations and i18n support."
+  # spec.homepage      = ""
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
