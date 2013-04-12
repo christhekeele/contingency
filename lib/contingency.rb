@@ -17,7 +17,7 @@ module Contingency
     self.configuration ||= Configuration.new
     yield(configuration) if block_given?
     require "contingency/integration"
-    require "contingency/error_handler"
+    require "contingency/plan"
     configuration
   end
 

@@ -1,6 +1,6 @@
 module Contingency
 
-  module ErrorHandler
+  module Plan
     extend ActiveSupport::Concern
     extend ActiveSupport::Rescuable
 
