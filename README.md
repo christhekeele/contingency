@@ -1,4 +1,4 @@
-<a name='contingency'>
+<a name='contingency-readme'>
 # Contingency
 </a>
 
@@ -40,7 +40,7 @@ It's also very lightweight: the core functionality (the module in `contingency/p
 
 Add this line to your application's Gemfile:
 
-    gem 'contingency-my_framework_name',  '~> x.0', require: 'contingency/adapters/my_framework_name'
+    gem 'contingency-my_framework_name',  '~> x.0'
 
 ...where [`my_framework_name`](#supported-integrations) is the name of your framework, and `x` is the major version of the framework you're using.
 
@@ -48,11 +48,15 @@ Then, execute:
 
     $ bundle
 
+Finally, enable Contingency in whatever object serves as your controller:
+
+    include Contingency::Plan
+
 <a name='configuration'>
 ## Configuration
 </a>
 
-Contingency
+Contingency-Rails uses the same configuration object as Contingency, but has different defaults. Run 'rake contingency:generate:config' to create a highly documented `contingency.rb` file in the root of your project that goes over all configuration options and defaults.
 
 <a name='supported-integrations'>
 ## Supported Integrations
@@ -70,16 +74,16 @@ Contingency
   <tbody>
     <tr>
       <td>
-        <a href='https://www.github.com/christhekeele/contingency_rails'>Rails</a>
+        <a href='https://www.github.com/christhekeele/contingency-rails'>Rails</a>
       </td>
       <td>
         **Bad**
       </td>
       <td>
-        <a href='https://rubygems.org/gems/contingency_rails'>3.x</a>
+        <a href='https://rubygems.org/gems/contingency-rails'>3.x</a>
       </td>
       <td>
-        <a href='https://www.github.com/christhekeele/contingency_rails/issues'>christhekeele</a>
+        <a href='https://www.github.com/christhekeele/contingency-rails/issues'>christhekeele</a>
       </td>
     </tr>
   </tbody>
@@ -123,7 +127,7 @@ Contingency integrations should take their major version number from [their fram
 ## Contributing Integrations
 </a>
 
-See [contingency_rails](https://www.github.com/christhekeele/contingency_rails) as an example.
+See [contingency-rails](https://www.github.com/christhekeele/contingency-rails) as an example.
 
 1. Create a new gem named after your framework (`bundle gem contingency-my_integration`)
 1. Add Contingency as a dependency to your gemspec and bundle install
@@ -134,7 +138,7 @@ See [contingency_rails](https://www.github.com/christhekeele/contingency_rails) 
 1. Create the intital build of your gem (`gem build contingency-my_integration`)
 1. Release your gem (`gem push contingency-my_integration.gem`)
 1. Revel in the fact that you've provided a Contingency plan for you and yours
-1. Follow [the steps below](#contributing-to-contingency) to update this README with links to your Contingency integrationaccepted
+1. Follow [the steps below](#contributing-to-contingency) to update this README with links to your Contingency integration
 
 
 <a name='contributing-to-contingency'>
@@ -143,7 +147,6 @@ See [contingency_rails](https://www.github.com/christhekeele/contingency_rails) 
 
 1. Fork it
 1. Create your feature branch (`git checkout -b my-new-feature`)
-1. Add the name of your integration to the integrations array in the contingency/integration.rb file if [you're contributing a Contingency integration](#contributing-integrations)
 1. Commit your changes (`git commit -am 'Add some feature'`)
 1. Push to the branch (`git push origin my-new-feature`)
 1. Create new Pull Request

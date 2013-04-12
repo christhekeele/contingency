@@ -4,13 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'contingency/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "contingency"
+  spec.name          = "Contingency"
   spec.version       = Contingency::VERSION
   spec.authors       = ["Christopher Keele"]
   spec.email         = ["dev@chriskeele.com"]
-  spec.description   = "A framework agnostic exception catcher and custom error page generator."
+  spec.description   = "A framework agnostic controller exception catcher and custom error page router."
   spec.summary       = "Handle your ruby web application's errors your way, with your own beautiful customized error pages. Framework agnostic with several integrations and i18n support."
-  # spec.homepage      = ""
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
