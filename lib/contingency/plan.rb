@@ -1,16 +1,14 @@
 module Contingency
 
   module Plan
-    extend ActiveSupport::Concern
-    extend ActiveSupport::Rescuable
 
+    def self.included(base)
+      base.send(:include, Contingency.adapter)
+      base.extend ActiveSupport::Rescuable
 
-    included do
-      extend Contingency.adapter
-
-      if catch_errors?
+      if base.catch_errors?
         Contingency.configuration.errors.each do |code, exceptions|
-          rescue_from *exceptions, with: ->(exception){ render_error code, exception }
+          base.rescue_from *exceptions, with: ->(exception){ render_error code, exception }
         end
       end
     end
