@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'contingency/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Contingency"
+  spec.name          = "contingency"
   spec.version       = Contingency::VERSION
   spec.authors       = ["Christopher Keele"]
   spec.email         = ["dev@chriskeele.com"]
